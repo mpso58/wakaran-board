@@ -66,5 +66,5 @@
 | 画像投稿 | 問題の写真を選んで投稿すると、Blob Storageに保存され、質問に写真が表示される | 発展7 |
 | 解決した！ボタン | ボタンを押すと質問が「解決済み」表示になる | 発展6 |
 
-サイトのURL：（公開後に記入）
-GitHubリポジトリのURL：（作成後に記入）
+サイトのURL：（https://wakarann06-d8ffa6b9btfhdfac.koreacentral-01.azurewebsites.net/）
+GitHubリポジトリのURL：（https://github.com/mpso58/wakaran-board）
