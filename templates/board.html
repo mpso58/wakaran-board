@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>掲示板 - わからんボード</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="board">
+    <header>
+      <a href="{{ url_for('index') }}"><h1>わからんボード</h1></a>
+      <nav class="tags">
+        <a class="{{ 'on' if not current }}" href="{{ url_for('board') }}">すべて</a>
+        {% for s in subjects %}
+        <a class="{{ 'on' if s == current }}" href="{{ url_for('board', subject=s) }}">{{ s }}</a>
+        {% endfor %}
+      </nav>
+    </header>
+
+    <form class="card" action="{{ url_for('post') }}" method="post" enctype="multipart/form-data">
+      <label>ニックネーム <input name="nickname" maxlength="20" placeholder="ななし"></label>
+      <label>科目
+        <select name="subject">
+          {% for s in subjects %}<option>{{ s }}</option>{% endfor %}
+        </select>
+      </label>
+      <label>質問 <textarea name="text" maxlength="500" required placeholder="どこがわからない？"></textarea></label>
+      <label>写真（任意） <input type="file" name="image" accept="image/*"></label>
+      <button class="btn" type="submit">投稿する</button>
+    </form>
+
+    {% for p in posts %}
+    <article class="card {{ 'solved' if p.solved }}">
+      <div class="meta">
+        <span class="tag">{{ p.subject }}</span>
+        <span>{{ p.nickname }}</span>
+        <span class="state">{{ '解決済み' if p.solved else '未解決' }}</span>
+      </div>
+      <p>{{ p.text }}</p>
+      {% if p.image %}<img src="{{ url_for('img', name=p.image) }}" alt="質問の写真">{% endif %}
+      {% if not p.solved %}
+      <form action="{{ url_for('solve', post_id=p.id) }}" method="post"><button class="btn small">解決した！</button></form>
+      {% endif %}
+    </article>
+    {% else %}
+    <p class="empty">まだ質問がありません。最初の1件を投稿しよう！</p>
+    {% endfor %}
+  </main>
+</body>
+</html>
