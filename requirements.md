@@ -1,6 +1,6 @@
 # 要件定義：わからんボード（勉強の「わからない」を気軽に聞ける掲示板）
 
-- 名前：（PI52A233 06 MIN OO）
+- 名前：（クラス記号 出席番号 氏名）
 
 ## 1. 目的と高校生向けの工夫
 
@@ -66,5 +66,5 @@
 | 画像投稿 | 問題の写真を選んで投稿すると、Blob Storageに保存され、質問に写真が表示される | 発展7 |
 | 解決した！ボタン | ボタンを押すと質問が「解決済み」表示になる | 発展6 |
 
-サイトのURL：（https://wakarann06-d8ffa6b9btfhdfac.koreacentral-01.azurewebsites.net/）
-GitHubリポジトリのURL：（https://github.com/mpso58/wakaran-board）
+サイトのURL：（公開後に記入）
+GitHubリポジトリのURL：（作成後に記入）
